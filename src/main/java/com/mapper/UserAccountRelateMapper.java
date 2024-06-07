@@ -54,5 +54,11 @@ public interface UserAccountRelateMapper {
      */
     int updateByPrimaryKey(UserAccountRelate record);
 
+    /**
+     * 通过绑定选择无crc
+     *
+     * @param bindNoCrc 绑定无crc
+     * @return {@link List }<{@link UserAccountRelate }>
+     */
     List<UserAccountRelate> selectByBindNoCrc(@Param("bindNoCrc") Long bindNoCrc);
 }

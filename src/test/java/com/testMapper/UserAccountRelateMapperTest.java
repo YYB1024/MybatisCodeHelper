@@ -9,6 +9,8 @@ import org.apache.logging.log4j.Logger;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.util.List;
+
 /**
  * @author yangyanbin
  * @since 20240607
@@ -26,7 +28,8 @@ public class UserAccountRelateMapperTest {
 
     @Test
     public void testSelectByBindNoCrc() {
-        mapper.selectByBindNoCrc(1039361722L);
+        List<UserAccountRelate> accountRelates = mapper.selectByBindNoCrc(1039361722L);
+        System.out.println("accountRelates = " + JSON.toJSONString(accountRelates));
     }
 
     @Test
