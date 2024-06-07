@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.UserAccountRelateMapper">
+  <resultMap id="BaseResultMap" type="com.domain.UserAccountRelate">
+    <!--@mbg.generated-->
+    <!--@Table user_account_relate-->
+    <id column="id" property="id" />
+    <result column="userid" property="userid" />
+    <result column="bind_no" property="bindNo" />
+    <result column="bind_no_crc" property="bindNoCrc" />
+    <result column="bind_user_id" property="bindUserId" />
+    <result column="openid" property="openid" />
+    <result column="openid_crc" property="openidCrc" />
+    <result column="subscribe" property="subscribe" />
+    <result column="status" property="status" />
+    <result column="create_time" property="createTime" />
+    <result column="update_time" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, userid, bind_no, bind_no_crc, bind_user_id, openid, openid_crc, subscribe, `status`, 
+    create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from user_account_relate
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from user_account_relate
+    where id = #{id}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.domain.UserAccountRelate" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into user_account_relate (userid, bind_no, bind_no_crc, bind_user_id, openid, openid_crc, 
+      subscribe, `status`, create_time, update_time)
+    values (#{userid}, #{bindNo}, #{bindNoCrc}, #{bindUserId}, #{openid}, #{openidCrc}, 
+      #{subscribe}, #{status}, #{createTime}, #{updateTime})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.domain.UserAccountRelate" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into user_account_relate
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="bindNo != null and bindNo != ''">
+        bind_no,
+      </if>
+      <if test="bindNoCrc != null">
+        bind_no_crc,
+      </if>
+      <if test="bindUserId != null">
+        bind_user_id,
+      </if>
+      <if test="openid != null and openid != ''">
+        openid,
+      </if>
+      <if test="openidCrc != null">
+        openid_crc,
+      </if>
+      <if test="subscribe != null">
+        subscribe,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        #{userid},
+      </if>
+      <if test="bindNo != null and bindNo != ''">
+        #{bindNo},
+      </if>
+      <if test="bindNoCrc != null">
+        #{bindNoCrc},
+      </if>
+      <if test="bindUserId != null">
+        #{bindUserId},
+      </if>
+      <if test="openid != null and openid != ''">
+        #{openid},
+      </if>
+      <if test="openidCrc != null">
+        #{openidCrc},
+      </if>
+      <if test="subscribe != null">
+        #{subscribe},
+      </if>
+      <if test="status != null">
+        #{status},
+      </if>
+      <if test="createTime != null">
+        #{createTime},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.domain.UserAccountRelate">
+    <!--@mbg.generated-->
+    update user_account_relate
+    <set>
+      <if test="userid != null">
+        userid = #{userid},
+      </if>
+      <if test="bindNo != null and bindNo != ''">
+        bind_no = #{bindNo},
+      </if>
+      <if test="bindNoCrc != null">
+        bind_no_crc = #{bindNoCrc},
+      </if>
+      <if test="bindUserId != null">
+        bind_user_id = #{bindUserId},
+      </if>
+      <if test="openid != null and openid != ''">
+        openid = #{openid},
+      </if>
+      <if test="openidCrc != null">
+        openid_crc = #{openidCrc},
+      </if>
+      <if test="subscribe != null">
+        subscribe = #{subscribe},
+      </if>
+      <if test="status != null">
+        `status` = #{status},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.domain.UserAccountRelate">
+    <!--@mbg.generated-->
+    update user_account_relate
+    set userid = #{userid},
+      bind_no = #{bindNo},
+      bind_no_crc = #{bindNoCrc},
+      bind_user_id = #{bindUserId},
+      openid = #{openid},
+      openid_crc = #{openidCrc},
+      subscribe = #{subscribe},
+      `status` = #{status},
+      create_time = #{createTime},
+      update_time = #{updateTime}
+    where id = #{id}
+  </update>
+
+<!--auto generated by MybatisCodeHelper on 2024-06-07-->
+  <select id="selectByBindNoCrc" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from user_account_relate
+    where bind_no_crc=#{bindNoCrc}
+  </select>
+
+</mapper>
