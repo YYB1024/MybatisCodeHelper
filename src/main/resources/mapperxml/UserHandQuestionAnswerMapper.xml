@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.UserHandQuestionAnswerMapper">
+  <resultMap id="BaseResultMap" type="com.domain.UserHandQuestionAnswerVo">
+    <!--@mbg.generated-->
+    <!--@Table user_hand_question_answer-->
+    <id column="id" property="id" />
+    <result column="userid" property="userid" />
+    <result column="course" property="course" />
+    <result column="content" property="content" />
+    <result column="status" property="status" />
+    <result column="create_time" property="createTime" />
+    <result column="update_time" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, userid, course, content, `status`, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from user_hand_question_answer
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from user_hand_question_answer
+    where id = #{id}
+  </delete>
+  <insert id="insert" parameterType="com.domain.UserHandQuestionAnswerVo">
+    <!--@mbg.generated-->
+    insert into user_hand_question_answer (id, userid, course, content, `status`, create_time, update_time
+      )
+    values (#{id}, #{userid}, #{course}, #{content}, #{status}, #{createTime}, #{updateTime}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.domain.UserHandQuestionAnswerVo">
+    <!--@mbg.generated-->
+    insert into user_hand_question_answer
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="course != null">
+        course,
+      </if>
+      <if test="content != null and content != ''">
+        content,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id},
+      </if>
+      <if test="userid != null">
+        #{userid},
+      </if>
+      <if test="course != null">
+        #{course},
+      </if>
+      <if test="content != null and content != ''">
+        #{content},
+      </if>
+      <if test="status != null">
+        #{status},
+      </if>
+      <if test="createTime != null">
+        #{createTime},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.domain.UserHandQuestionAnswerVo">
+    <!--@mbg.generated-->
+    update user_hand_question_answer
+    <set>
+      <if test="userid != null">
+        userid = #{userid},
+      </if>
+      <if test="course != null">
+        course = #{course},
+      </if>
+      <if test="content != null and content != ''">
+        content = #{content},
+      </if>
+      <if test="status != null">
+        `status` = #{status},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.domain.UserHandQuestionAnswerVo">
+    <!--@mbg.generated-->
+    update user_hand_question_answer
+    set userid = #{userid},
+      course = #{course},
+      content = #{content},
+      `status` = #{status},
+      create_time = #{createTime},
+      update_time = #{updateTime}
+    where id = #{id}
+  </update>
+  <select id="selectByUserid" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List" />
+        from user_hand_question_answer
+        where userid=#{userid,jdbcType=BIGINT}
+    </select>
+</mapper>
